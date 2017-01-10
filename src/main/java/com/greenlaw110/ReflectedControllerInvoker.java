@@ -1,14 +1,10 @@
 package com.greenlaw110;
 
 import com.esotericsoftware.reflectasm.MethodAccess;
-import org.osgl.$;
 import org.osgl.mvc.result.Result;
 
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-
 /**
- * Created by luog on 11/01/17.
+ * This emulate ActFramework's ReflectedHandlerInvoker
  */
 public class ReflectedControllerInvoker {
 

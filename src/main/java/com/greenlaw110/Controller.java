@@ -4,7 +4,7 @@ import org.osgl.mvc.result.NotFound;
 import org.osgl.mvc.result.Result;
 
 /**
- * Created by luog on 11/01/17.
+ * This emulate a normal act app controller class
  */
 public class Controller extends MvcUtil {
 
