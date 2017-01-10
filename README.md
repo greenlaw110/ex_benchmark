@@ -30,6 +30,6 @@ MyBenchmark.testMethodTwo    thrpt   10  124141072.380 ± 1075516.028  ops/s
 ## Conclusion
 
 * It is safe (maybe encouraged) to throw static exception in an ActFramework application.
-* **caution** do not throw any exception if your controller handler method is `static`, in which case ActFramework 
-  will use Java reflection to call it. And anything throw out will be wrapped with `InvocationTargetException` which
+* **caution** do not use exception as control flow if your controller handler method is `static`, in which case ActFramework 
+  will use Java reflection to invoke it. And anything throw out will be wrapped with `InvocationTargetException` which
   ruin the performance for no doubt
