@@ -15,17 +15,19 @@ java -jar benchmarks.jar
 ## The result
 
 ```
-Benchmark                     Mode  Cnt          Score         Error  Units
-MyBenchmark.testMethod       thrpt   10   83672353.298 ± 1147353.403  ops/s
-MyBenchmark.testMethodThree  thrpt   10   79100995.038 ±  927628.719  ops/s
-MyBenchmark.testMethodTwo    thrpt   10  124141072.380 ± 1075516.028  ops/s
+Benchmark                        Mode  Cnt          Score         Error  Units
+MyBenchmark.returnResult        thrpt   10   81916164.629 ± 1808986.677  ops/s
+MyBenchmark.returnStaticResult  thrpt   10  114661426.440 ±  462720.877  ops/s
+MyBenchmark.throwResult         thrpt   10   86975587.406 ± 2002692.180  ops/s
+MyBenchmark.throwStaticResult   thrpt   10  123113490.910 ±  812310.418  ops/s
 ```
 
 ## A bit explaination
 
-* testMethod: throw an new `NotFound` instance constructed with the message
-* testMethodTwo: throw a static `NotFound.INSTANCE` instance and use ThreadLocal to store the message
-* testMethodThree: Return an new `NotFound` instance constructed with the message
+* returnResult: Return an new `NotFound` instance constructed with the message
+* returnStaticResult: Return a static `NotFound.INSTANCE` instance and use ThreadLocal to store the message
+* throwResult: throw an new `NotFound` instance constructed with the message
+* throwStaticResult: throw a static `NotFound.INSTANCE` instance and use ThreadLocal to store the message
 
 ## Conclusion
 

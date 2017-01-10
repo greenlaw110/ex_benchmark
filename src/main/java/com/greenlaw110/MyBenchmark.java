@@ -40,7 +40,7 @@ public class MyBenchmark {
     private static ReflectedControllerInvoker invoker;
 
     @Benchmark
-    public void testMethod() {
+    public void throwResult() {
         try {
             invoker.invoke("abc");
         } catch (Result result) {
@@ -53,7 +53,7 @@ public class MyBenchmark {
     }
 
     @Benchmark
-    public void testMethodTwo() {
+    public void throwStaticResult() {
         try {
             invoker.invokeTwo("abc");
         } catch (Result result) {
@@ -66,7 +66,7 @@ public class MyBenchmark {
     }
 
     @Benchmark
-    public void testMethodThree() {
+    public void returnResult() {
         try {
             Result result = invoker.invokeThree("abc");
             if (!"abc".equals(result.getMessage())) {
@@ -77,10 +77,23 @@ public class MyBenchmark {
         }
     }
 
+    @Benchmark
+    public void returnStaticResult() {
+        try {
+            invoker.invokeFour("abc");
+            if (!"abc".equals(MvcUtil.msg())) {
+                throw E.unexpected("msg not match");
+            }
+        } catch (Throwable throwable) {
+            throw E.unexpected(throwable);
+        }
+    }
+
     public static void main(String[] args) {
-        new MyBenchmark().testMethod();
-        new MyBenchmark().testMethodTwo();
-        new MyBenchmark().testMethodThree();
+        new MyBenchmark().throwResult();
+        new MyBenchmark().throwStaticResult();
+        new MyBenchmark().returnResult();
+        new MyBenchmark().returnStaticResult();
     }
 
 }

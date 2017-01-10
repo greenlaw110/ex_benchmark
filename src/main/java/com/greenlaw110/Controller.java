@@ -21,6 +21,7 @@ public class Controller extends MvcUtil {
     }
 
     public Result handlerFour(String msg) {
+        MvcUtil.MSG.set(msg);
         return NotFound.INSTANCE;
     }
 
