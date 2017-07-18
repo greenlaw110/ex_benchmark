@@ -1,6 +1,6 @@
 # EX Benchmark
 
-Benchmark using exception as a control flow in an ActFramework emulating environment
+Benchmark using exception as a control flow in an [ActFramework](https://github.com/actframework/actframework) emulating environment
 
 This benchmark is implemented on [JMH](http://openjdk.java.net/projects/code-tools/jmh/)
 
@@ -34,4 +34,4 @@ MyBenchmark.throwStaticResult   thrpt   10  123113490.910 ±  812310.418  ops/s
 * It is safe (maybe encouraged) to throw static exception in an ActFramework application.
 * **caution** do not use exception as control flow if your controller handler method is `static`, in which case ActFramework 
   will use Java reflection to invoke it. And anything throw out will be wrapped with `InvocationTargetException` which
-  ruin the performance for no doubt
+  will definitly ruin your performance 
